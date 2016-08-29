@@ -1,0 +1,8 @@
+# Dependency categories
+node_modules/
+
+# Keys
+.env*
+
+# OS Metadata
+.DS_Store
