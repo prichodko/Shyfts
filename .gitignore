@@ -6,3 +6,7 @@ node_modules/
 
 # OS Metadata
 .DS_Store
+
+# TypeScript definition files 
+typings/
+jsconfig.json

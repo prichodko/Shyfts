@@ -18,5 +18,10 @@
   "bugs": {
     "url": "https://github.com/prichodko/Shyfts/issues"
   },
-  "homepage": "https://github.com/prichodko/Shyfts#readme"
+  "homepage": "https://github.com/prichodko/Shyfts#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "dotenv": "^2.0.0",
+    "express": "^4.14.0"
+  }
 }
