@@ -22,4 +22,3 @@ log.info(app.get('env'))
 app.listen(app.get('port'), function () {
   log.info('Listening on port: ' + app.get('port'))
 })
-
