@@ -1,9 +1,8 @@
 const mongoose = require('mongoose')
+const isEmail = require('isemail')
 // const Joi = require('joi')
-const isemail = require('isemail')
 
 const hash = require('../../lib/hash')
-// const bcrypt = require('bcrypt')
 
 const UserSchema = new mongoose.Schema({
   firstName: { type: String },
@@ -14,7 +13,7 @@ const UserSchema = new mongoose.Schema({
     unique: true,
     lowercase: true,
     validate: {
-      validator: email => isemail.validate(email),
+      validator: email => isEmail.validate(email),
       message: 'Invalid email address.'
     }
   },
@@ -26,6 +25,7 @@ const UserSchema = new mongoose.Schema({
   timestamps: true
 })
 
+// Password hashing hook
 UserSchema.pre('save', function (next) {
   const user = this
 
