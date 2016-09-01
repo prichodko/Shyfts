@@ -18,3 +18,24 @@ exports.signup = function (req, res, next) {
     res.send({ token: token, user: user })
   })
 }
+
+exports.signin = function (req, res, next) {
+  User.findOne({ email: req.body.email.toLowerCase() }, function (err, user) {
+    if (err || !user) {
+      return res.status(400).send(err) // no email
+    }
+
+    hash.verify(user.password, req.body.password, (err, same) => {
+      if (err) {
+        return res.status(400, err) // ?
+      }
+
+      if (!same) {
+        return res.status(401).send('Invalid email or password')
+      }
+
+      const token = jwt.sign({ email: user.email }, config.auth.secret)
+      res.send({ token: token, id: user.id })
+    })
+  })
+}
